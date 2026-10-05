@@ -1,0 +1,382 @@
+{
+  "name": "Haider Najeeb",
+  "title": "Computer Vision & ML Engineer",
+  "github": "https://github.com/HaiderAbasi",
+  "linkedin": "https://www.linkedin.com/in/haider-najeeb-68812516a/",
+  "projects": [
+    {
+      "id": "wedding-engine",
+      "number": "01",
+      "name": "PremierPro Wedding Engine",
+      "category": "VIDEO AI / AUTOMATION",
+      "status": "Long-running client system",
+      "type": "video",
+      "headline": "From raw footage to a review-ready edit.",
+      "summary": "An integrated video-analysis and editing pipeline that turns multi-camera wedding footage into review-ready Adobe Premiere timelines.",
+      "problem": "Large multi-camera wedding projects require footage review, quality checks, content classification, synchronization, and sequencing before an editor can work with a useful timeline.",
+      "role": "I built and integrated CV/video-analysis subsystems, media utilities, and Premiere automation, and performance-tuned long-form processing within a long-running client engagement.",
+      "delivered": [
+        "Footage quality analysis, obstruction checks, and clip-selection logic integrated into the editing workflow.",
+        "Scene/event categorization and deterministic sequencing rules feeding automated Premiere timeline generation.",
+        "Media normalization, synchronization utilities, and structured JSON/CSV outputs connecting the pipeline stages."
+      ],
+      "approach": [
+        "Use model predictions to supply quality and content signals; use explicit rules to organize the edit.",
+        "Combine detector proposals, geometric filters, ConvNeXt verification, and temporal persistence for obstruction detection.",
+        "Profile processing stages before optimizing: GPU optical flow and batched inference addressed separate measured bottlenecks."
+      ],
+      "result": "A working client pipeline producing review-ready Premiere projects, with measured improvements in specific video-processing stages.",
+      "metric": "~4 h → ~90 min",
+      "metricLabel": "Measured workflow · ~2.5 h of footage",
+      "metricNote": "CUDA/OpenCV optical-flow acceleration reduced the measured workflow from roughly four hours to ninety minutes. This is not a benchmark of every stage or every input.",
+      "secondaryMetric": "~49% less inference time",
+      "secondaryNote": "A separate orientation-detector optimization using GPU batch inference; not an end-to-end runtime reduction.",
+      "skills": [
+        "Python",
+        "OpenCV CUDA",
+        "PyTorch",
+        "FFmpeg",
+        "Video understanding",
+        "Premiere automation",
+        "Profiling"
+      ],
+      "growth": "This work strengthened my ability to connect models, media formats, business rules, and application automation into one usable client workflow.",
+      "demos": [
+        {
+          "label": "Watch system demo",
+          "url": "https://drive.google.com/file/d/1-uYnNa-nsTW479l26SPg1tfG82WlYjgc/view",
+          "embed": "https://drive.google.com/file/d/1-uYnNa-nsTW479l26SPg1tfG82WlYjgc/preview"
+        },
+        {
+          "label": "Optimization evidence",
+          "url": "https://docs.google.com/presentation/d/1uQ9WT5xaTN4sb1faGKxvlypNPuQfeT7RoT-_XzHNH6A/edit"
+        }
+      ],
+      "sources": [
+        "P003",
+        "P004",
+        "P005",
+        "P006",
+        "P007",
+        "P008",
+        "P010",
+        "P011",
+        "P012"
+      ]
+    },
+    {
+      "id": "image-to-kg",
+      "number": "02",
+      "name": "Image-to-KG / Text-to-KG",
+      "category": "MULTIMODAL AI / RETRIEVAL",
+      "status": "Active client system",
+      "type": "ai",
+      "headline": "Media becomes connected, searchable knowledge.",
+      "summary": "Local-first document and media ingestion with preserved provenance, Neo4j graph integration, and retrieve-then-rerank search.",
+      "problem": "Documents, images, video, and audio contain related information, but extraction and search become fragile when their source relationships, identities, and metadata are lost.",
+      "role": "I implemented multimodal ingestion and semantic-extraction stages, integrated media and text graph layers, worked on retrieval/reranking, and ported the Windows pipeline to Apple Silicon.",
+      "delivered": [
+        "PDF/media extraction, OCR handling, deduplication, and provenance manifests linking outputs back to source material.",
+        "Image, video, audio, and metadata processing feeding a Neo4j-backed knowledge graph.",
+        "Media/text entity integration and a retrieval workflow combining candidate signals with semantic reranking.",
+        "Platform-aware launchers, dependency handling, and CPU/MPS fallbacks for macOS compatibility."
+      ],
+      "approach": [
+        "Preserve provenance and deterministic record identity through each ingestion stage.",
+        "Retrieve candidates before reranking; investigate entity-alias and language-related failure cases with real inputs.",
+        "Make hardware-dependent components optional so the application can run across Windows and Apple Silicon."
+      ],
+      "result": "An integrated client workstream connecting heterogeneous media to structured knowledge, with verified compatibility work on Apple Silicon.",
+      "metric": "76 / 76",
+      "metricLabel": "Targeted compatibility regressions passed",
+      "metricNote": "The count is from a macOS compatibility validation checkpoint. It does not imply universal retrieval accuracy or MPS acceleration for every component.",
+      "skills": [
+        "Python",
+        "Neo4j / Cypher",
+        "OCR",
+        "Semantic reranking",
+        "Media provenance",
+        "Apple Silicon",
+        "Git submodules"
+      ],
+      "growth": "This project deepened my experience with provenance, retrieval debugging, and the practical dependency issues involved in cross-platform ML software.",
+      "demos": [
+        {
+          "label": "Watch pipeline demo",
+          "url": "https://drive.google.com/file/d/1vV4f7VTjgoh4Ty4B_3xkHz5k0oJHh5nj/view",
+          "embed": "https://drive.google.com/file/d/1vV4f7VTjgoh4Ty4B_3xkHz5k0oJHh5nj/preview"
+        }
+      ],
+      "sources": [
+        "P036",
+        "P037",
+        "P038"
+      ],
+      "image": "kg-output.webp",
+      "alt": "Actual Image-to-KG demo showing a retrieved answer with source-paragraph references and supporting media."
+    },
+    {
+      "id": "retail-analytics",
+      "number": "03",
+      "name": "Retail Analytics",
+      "category": "TRACKING / SPATIAL VISION",
+      "status": "Client proof of concept",
+      "type": "video",
+      "image": "retail.webp",
+      "alt": "Actual retail analytics demo showing shopper tracks and colored shelf-zone polygons in an overhead store view.",
+      "headline": "Connect shopper tracks to the store layout.",
+      "summary": "Person detection and tracking combined with shelf/zone geometry, trajectory outputs, and segmentation-assisted ROI mapping.",
+      "problem": "Detections alone do not describe a shopper's movement through a store. Useful analysis requires identities across frames and an association between tracks and the store's spatial layout.",
+      "role": "I built a retail-video analytics proof of concept, experimented with tracking methods, connected tracks to zones, and developed shelf/rack segmentation and polygon-cleanup logic.",
+      "delivered": [
+        "Detection/tracking overlays and structured trajectory outputs for downstream analysis.",
+        "Track-to-zone association using configured shelf and region polygons.",
+        "SAM3-assisted shelf/rack segmentation with custom geometry and polygon cleanup for ROI mapping."
+      ],
+      "approach": [
+        "Evaluate tracking behavior on retail footage rather than relying only on frame-level detections.",
+        "Keep track identity and spatial zone association explicit in the output.",
+        "Combine segmentation masks with application-specific geometry to build useful region boundaries."
+      ],
+      "result": "A working multi-video client POC with demonstrable tracking and zone association, plus an automatic ROI-mapping workstream.",
+      "metric": "Tracks + zones",
+      "metricLabel": "Structured video analytics",
+      "metricNote": "This is a proof of concept. No store-wide production KPI, identity accuracy, or commercial deployment result is claimed.",
+      "skills": [
+        "Python",
+        "OpenCV",
+        "YOLO",
+        "BoT-SORT",
+        "SAM3",
+        "Multi-object tracking",
+        "Spatial geometry"
+      ],
+      "growth": "The work reinforced the importance of temporal consistency and geometry: model outputs need spatial and application logic before they become useful analytics.",
+      "demos": [
+        {
+          "label": "Watch tracking demo",
+          "url": "https://drive.google.com/file/d/1moCDXfmgpSjAsOI9XXDegYC0fCG_Xuho/view",
+          "embed": "https://drive.google.com/file/d/1moCDXfmgpSjAsOI9XXDegYC0fCG_Xuho/preview"
+        },
+        {
+          "label": "Watch auto ROI demo",
+          "url": "https://drive.google.com/file/d/1yZMlEbT5DWLjHaVdqEgN52w5Z1DtRs71/view",
+          "embed": "https://drive.google.com/file/d/1yZMlEbT5DWLjHaVdqEgN52w5Z1DtRs71/preview"
+        }
+      ],
+      "sources": [
+        "P027",
+        "D07",
+        "D08"
+      ]
+    },
+    {
+      "id": "point-cloud-planning",
+      "number": "04",
+      "name": "Point-cloud Segmentation & Planning",
+      "category": "3D VISION / GEOMETRY",
+      "status": "Completed client project",
+      "type": "3d",
+      "image": "pointcloud.webp",
+      "alt": "Actual project output: a segmented 3D point cloud with structural obstacles, traversal cells, and colored path-planning markers.",
+      "headline": "From an unstructured scan to traversable space.",
+      "summary": "A C++/PCL pipeline separating structural geometry, constructing traversable space, and computing shortest paths with A*.",
+      "problem": "A raw 3D point cloud needs geometric interpretation before a planner can reason about ground, structural obstacles, and a possible route.",
+      "role": "I implemented point-cloud segmentation, navigation preprocessing, and A* path planning for a client project.",
+      "delivered": [
+        "Segmented ground, cylindrical pillars, and remaining wall structures.",
+        "Traversable-area processing using surface normals, RANSAC, outlier rejection, and octree representation.",
+        "A* shortest-path computation with cost-map and path visualizations."
+      ],
+      "approach": [
+        "Use geometric structure to distinguish ground and obstacles.",
+        "Build the spatial representation before applying graph search.",
+        "Visualize segmentation and planning stages so errors can be inspected at their source."
+      ],
+      "result": "A completed point-cloud pipeline with segmented structural layers and a visualized shortest path.",
+      "metric": "Geometry → route",
+      "metricLabel": "Segmentation, spatial representation, A*",
+      "metricNote": "The demonstrated result is point-cloud segmentation and planning. It is not a deployed autonomous navigation stack or a depth-camera metrology system.",
+      "skills": [
+        "C++",
+        "PCL",
+        "Surface normals",
+        "RANSAC",
+        "Octrees",
+        "A*",
+        "3D visualization"
+      ],
+      "growth": "This project developed my ability to turn geometric data into a representation that a downstream algorithm can use, and to debug the stages visually.",
+      "demos": [
+        {
+          "label": "View project outputs",
+          "url": "../projects/point-cloud-planning.html#outputs"
+        }
+      ],
+      "sources": [
+        "P024",
+        "S03"
+      ]
+    },
+    {
+      "id": "multispectral-calibration",
+      "number": "05",
+      "name": "Multispectral Calibration & OpenDroneMap",
+      "category": "PHOTOGRAMMETRY / C++",
+      "status": "Delivered research work",
+      "type": "3d",
+      "headline": "Preserve the measurement, not just the image.",
+      "summary": "Four-band Parrot Sequoia calibration and C++ integration into an OpenDroneMap workflow with 16-bit orthomosaic output.",
+      "problem": "Multispectral aerial images need geometric and radiometric correction, while a photogrammetry workflow must preserve their useful measurement information.",
+      "role": "At the Institute of Space Technology, I built/prototyped calibration steps and integrated C++ code into OpenDroneMap for an HEC-funded unmanned aerial forest-management R&D project.",
+      "delivered": [
+        "Calibration stages for vignetting, dark-current correction, geometric undistortion, and radiometric calibration.",
+        "Processing of Green, Red, Red Edge, and NIR imagery from the Parrot Sequoia camera.",
+        "An OpenDroneMap workflow extension preserving 16-bit orthomosaic output, alongside Linux build and integration work."
+      ],
+      "approach": [
+        "Treat the camera model and radiometric corrections as part of the measurement pipeline.",
+        "Prototype corrections and integrate the working stages into the existing C++ photogrammetry workflow.",
+        "Preserve pixel depth through output rather than discarding information during conversion."
+      ],
+      "result": "Delivered calibration and photogrammetry integration work during Aug 2019–Jun 2020, including four-band processing and 16-bit orthomosaic capability.",
+      "metric": "8-bit → 16-bit",
+      "metricLabel": "Orthomosaic output preservation",
+      "metricNote": "The registry also records approximately 12.1 seconds per image for the calibration pipeline. These are historical workflow results, not a benchmark on current hardware.",
+      "skills": [
+        "C++",
+        "Python",
+        "OpenCV",
+        "OpenDroneMap",
+        "Camera calibration",
+        "Radiometry",
+        "Linux builds"
+      ],
+      "growth": "This was formative work: learning camera models, radiometry, C++, and photogrammetry while solving a real research problem outside my initial comfort zone.",
+      "demos": [
+        {
+          "label": "Related ODM release note",
+          "url": "https://opendronemap.org/2020/02/odm-0-9-8-adds-multispectral-16bit-tiffs-support-and-moar/"
+        }
+      ],
+      "evidenceNote": "The public ODM release note corroborates the feature and timeline; it does not establish individual authorship of the entire multispectral feature set.",
+      "sources": [
+        "P001",
+        "S01",
+        "S02",
+        "S15"
+      ]
+    },
+    {
+      "id": "secure-access",
+      "number": "06",
+      "name": "Secure Access",
+      "category": "LIVE CAMERA / RECOGNITION",
+      "status": "Public teaching project",
+      "type": "video",
+      "headline": "Live camera input. Identity-aware feedback.",
+      "summary": "A public webcam application connecting face detection, recognition, and tracking to immediate access feedback.",
+      "problem": "A live-camera application needs to recognize authorized people while keeping video processing and application feedback responsive.",
+      "role": "I developed and taught the face detection, alignment, recognition, tracking, and access-logic workflow as a public OpenCV project.",
+      "delivered": [
+        "Continuous camera acquisition with face detection and tracking.",
+        "Face alignment and embedding/distance-based recognition logic.",
+        "Authorized-access decisions and responsive user feedback in an application workflow."
+      ],
+      "approach": [
+        "Connect recognition and tracking so the workflow can use identity over time.",
+        "Use multiprocessing alongside tracking for continuous frame processing.",
+        "Make the complete workflow understandable and reproducible through source code and teaching materials."
+      ],
+      "result": "A completed public application and teaching project demonstrating live-video recognition and interactive CV.",
+      "metric": "Live feed → decision",
+      "metricLabel": "Recognition, tracking, feedback",
+      "metricNote": "This is a public teaching application, not a certified physical access-control product. No security certification or measured latency is claimed.",
+      "skills": [
+        "Python",
+        "OpenCV",
+        "Face recognition",
+        "Tracking",
+        "Multiprocessing",
+        "Live-camera processing"
+      ],
+      "growth": "Building and teaching the application strengthened both my real-time CV integration skills and my ability to explain an engineering workflow clearly.",
+      "demos": [
+        {
+          "label": "Explore source code",
+          "url": "https://github.com/HaiderAbasi/OpenCV-Secure-Access"
+        },
+        {
+          "label": "View CV course",
+          "url": "https://www.udemy.com/course/computer-vision-2022-masterclass-with-opencv4-and-python/"
+        }
+      ],
+      "sources": [
+        "P019",
+        "S11",
+        "S12"
+      ],
+      "image": "secure-access.webp",
+      "alt": "Actual Secure Access demo frame showing tracked face recognition and authorized-access feedback."
+    }
+  ],
+  "additional": [
+    {
+      "name": "Pix2Plot",
+      "field": "Segmentation + OCR",
+      "status": "Implemented workflow",
+      "body": "Built a visual meter-reading pipeline combining YOLOv8 segmentation and PaddleOCR reading extraction, producing structured numerical/time-series output.",
+      "skills": "Segmentation · OCR · structured extraction",
+      "url": "https://drive.google.com/file/d/1AGiexExs-4H3oUCn5l4et8PM-hOK4mKz/view",
+      "embed": "https://drive.google.com/file/d/1AGiexExs-4H3oUCn5l4et8PM-hOK4mKz/preview",
+      "label": "Watch demo"
+    },
+    {
+      "name": "AutoFramePro",
+      "field": "Premiere automation",
+      "status": "Implemented workstream",
+      "body": "Built Adobe Premiere project synthesis with autoloading and autoframing using ExtendScript, as part of related video-automation work.",
+      "skills": "ExtendScript · media automation · application integration",
+      "url": "https://drive.google.com/file/d/17RPQ7aRgFdUnGY31rb3PeWWBX4LBh2mR/view",
+      "embed": "https://drive.google.com/file/d/17RPQ7aRgFdUnGY31rb3PeWWBX4LBh2mR/preview",
+      "label": "Watch demo"
+    },
+    {
+      "name": "Shirt Dye / Defect Identification",
+      "field": "Deep-learning segmentation",
+      "status": "Implemented client workstream",
+      "body": "Fine-tuned a YOLO segmentation workflow and exported the model to ONNX for hardware-friendly inference.",
+      "skills": "YOLO segmentation · model fine-tuning · ONNX",
+      "url": "https://drive.google.com/file/d/1PKI1UK-y7kHX4AqCzfEl9_6kX1ZpGdNX/view",
+      "embed": "https://drive.google.com/file/d/1PKI1UK-y7kHX4AqCzfEl9_6kX1ZpGdNX/preview",
+      "label": "Watch demo"
+    },
+    {
+      "name": "ROS2 Maze Solving",
+      "field": "Vision + robotics",
+      "status": "Public teaching project",
+      "body": "Developed and taught OpenCV perception, map/graph construction, and path planning for a simulated robot using overhead imagery, ROS2, Gazebo, and RViz.",
+      "skills": "ROS2 · OpenCV · graph search · simulation",
+      "url": "https://github.com/HaiderAbasi/ROS2-Path-Planning-and-Maze-Solving",
+      "label": "Explore source code"
+    },
+    {
+      "name": "Basketball Shot Counter",
+      "field": "Sports video analysis",
+      "status": "Completed public project",
+      "body": "Built a basketball shot-counter application with CPU/GPU processing, debug/display controls, and annotated video output.",
+      "skills": "Video processing · detection · scoring logic",
+      "url": "https://github.com/HaiderAbasi/OpenCV_Basketball_Shot_Counter",
+      "label": "Explore source code"
+    },
+    {
+      "name": "Multi-view Reconstruction",
+      "field": "Aerial / 3D vision",
+      "status": "Professional R&D · 2019",
+      "body": "At Burqstream Technologies, worked on camera calibration, feature matching, reconstruction from two, three, and multiple views, and point-cloud/orthomosaic workflows.",
+      "skills": "Multi-view geometry · photogrammetry · geospatial CV",
+      "url": "",
+      "label": ""
+    }
+  ]
+}
